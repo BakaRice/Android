@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">HelloWorld</string>
+    <string name="page_name">学习频道</string>
+    <string name="button">进入学习</string>
+    <string name="wechat">微信入门学习</string>
+    <string name="QQ">腾讯QQ入门学习</string>
+    <string name="zhifubao">支付宝入门学习</string>
+    <string name="taobao">淘宝入门学习</string>
+    <string name="w1">微信是腾讯公司于2011年初推出的一款手机聊天软件，也是当下最火的手机社交工具。它通过无线网络给朋友发送文字短信和图片，也可以进行语音和视频通话、支持多人群聊。不论是安卓还是苹果的手机用户，只要安装了微信，就可以进行跨手机平台的畅通聊天。 其官方网站上的宣传语为： 微信，是一个生活方式。</string>
+    <string name="CourseUrl">http://114.115.169.146:8080/queryCourseList</string>
+    <string name="ChapterUrl">http://114.115.169.146:8080/queryChapterList</string>
+    <string name="ParagraphUrl">http://114.115.169.146:8080/queryParagraphList</string>
+
+</resources>

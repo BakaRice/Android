@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".test.MainActivity_first"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp"
+        android:paddingRight="15dp"
+        android:baselineAligned="false" android:paddingBottom="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="7.5dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/bt_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/first"
+                android:gravity="bottom|center"
+                android:textColor="#FFF"
+                android:text="学习频道"
+                android:textSize="25dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="7.5dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:paddingBottom="7.5dp">
+
+                    <TextView
+                        android:id="@+id/t1"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="-25° "
+                        android:gravity="right"
+                        android:textSize="25dp"
+                        android:background="@drawable/second"
+                        android:textColor="#FFF"
+
+                       />
+                    <TextView
+                        android:id="@+id/t2"
+                        android:layout_below="@id/t1"
+                        android:text="多云"
+                        android:textSize="30dp"
+                        android:gravity="center_horizontal|center"
+                        android:background="#2848c7"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:drawableLeft="@drawable/tianqi1"
+                        android:textColor="#FFF"
+                        />
+                    <TextView
+                        android:id="@+id/t3"
+                        android:layout_below="@id/t2"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:text="香坊区"
+                        android:gravity="right"
+                        android:textSize="25dp"
+                        android:drawableRight="@mipmap/dingwei1"
+                        android:background="#2848c7"
+                        android:textColor="#FFF"
+                        />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:paddingTop="7.5dp">
+
+                    <Button
+                        android:id="@+id/bt_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/thrid"
+                        android:text="定位"
+                        android:gravity="bottom|center"
+                        android:textSize="25dp"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:baselineAligned="false" android:paddingBottom="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="7.5dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/bt_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/fourth"
+                android:textColor="#FFF"
+                android:text="老友圈"
+                android:gravity="bottom|center"
+                android:textSize="25dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="7.5dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:paddingBottom="7.5dp">
+
+                    <Button
+                        android:id="@+id/bt_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/fifth"
+                        android:text="设置亲属手机"
+                        android:gravity="bottom|center"
+                        android:textSize="25dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:paddingTop="7.5dp">
+
+                    <Button
+                        android:id="@+id/bt_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/sixth"
+                        android:text="待开发六"
+                        android:gravity="bottom|center"
+                        android:textSize="25dp"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
