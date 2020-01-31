@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.helloworld.R;
 import com.example.helloworld.circle.entity.Fruit;
-import com.example.helloworld.circle.layoutManager.HorizonCustomLayoutManager;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
