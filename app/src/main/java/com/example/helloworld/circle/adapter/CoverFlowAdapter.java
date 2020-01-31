@@ -28,22 +28,23 @@ public class CoverFlowAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private Context mContext;
     private ArrayList<String> mDatas;
     private int mCreatedHolder = 0;
-    int[] mPics = {R.mipmap.item4, R.mipmap.item2, R.mipmap.item3,R.mipmap.item1};
+    int[] mPics = {R.mipmap.item4, R.mipmap.item2, R.mipmap.item3, R.mipmap.item1};
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mCreatedHolder++;
-        Log.d("qijian", "onCreateViewHolder  num:"+mCreatedHolder);
+        Log.d("qijian", "onCreateViewHolder  num:" + mCreatedHolder);
         LayoutInflater inflater = LayoutInflater.from(mContext);
         return new NormalHolder(inflater.inflate(R.layout.item_coverflow, parent, false));
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Log.d("qijian", "onBindViewHolder");
         NormalHolder normalHolder = (NormalHolder) holder;
-        normalHolder.mTV.setText(position+"p");
+        normalHolder.mTV.setText(position + "p");
         normalHolder.mImg.setImageDrawable(ContextCompat.getDrawable(mContext, mPics[position % mPics.length]));
 
     }

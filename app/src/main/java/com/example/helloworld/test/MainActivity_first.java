@@ -12,6 +12,7 @@ import com.example.helloworld.R;
 import com.example.helloworld.Utils.RequestCourseUtils;
 import com.example.helloworld.circle.CircleActivity;
 import com.example.helloworld.circle.ShareActivity;
+import com.example.helloworld.friendCircle.FriendCircleActivity;
 import com.example.helloworld.learn.MainActivity;
 import com.example.helloworld.location.Main5MapActivity;
 import com.example.helloworld.setrelative.SetRelative;
@@ -42,7 +43,7 @@ public class MainActivity_first extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity_first.this, CircleActivity.class);
+                Intent intent = new Intent(MainActivity_first.this, FriendCircleActivity.class);
                 startActivity(intent);
             }
         });

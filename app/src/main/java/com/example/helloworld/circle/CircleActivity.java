@@ -9,6 +9,7 @@ import android.os.Bundle;
 //import android.support.v7.widget.StaggeredGridLayoutManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -48,9 +49,11 @@ public class CircleActivity extends AppCompatActivity {
         StaggeredGridLayoutManager layoutManager
                 = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
+
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         ArrayList<String> mdatas = new ArrayList<>();
         CoverFlowAdapter coverFlowAdapter = new CoverFlowAdapter(CircleActivity.this);
-        FruitAdapter adapter = new FruitAdapter(fruitlist, coverFlowAdapter);
+        FruitAdapter adapter = new FruitAdapter(fruitlist, coverFlowAdapter,CircleActivity.this);
         recyclerView.setAdapter(adapter);
 
 

@@ -4,6 +4,7 @@ package com.example.helloworld.circle.adapter;
 //import android.support.annotation.NonNull;
 //import android.support.v7.widget.RecyclerView;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,16 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.helloworld.R;
-import com.example.helloworld.circle.CircleActivity;
 import com.example.helloworld.circle.entity.Fruit;
 import com.example.helloworld.circle.layoutManager.HorizonCustomLayoutManager;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -30,11 +30,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> {
 
     private List<Fruit> mFruitList;
+    //内层适配器
     CoverFlowAdapter mcoverFlowAdapter;
+    private Context mContext;
 
-    public FruitAdapter(List<Fruit> fruitList, CoverFlowAdapter coverFlowAdapter) {
+    public FruitAdapter(List<Fruit> fruitList, CoverFlowAdapter coverFlowAdapter, Context context) {
         mFruitList = fruitList;
         mcoverFlowAdapter = coverFlowAdapter;
+        mContext = context;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -130,11 +133,14 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
         Fruit fruit = mFruitList.get(position);
         //RV-start
 
-        mcoverFlowAdapter.mPics = new int[]{R.mipmap.ic_launcher_round+position,R.mipmap.ic_launcher_round+position+1};
+        mcoverFlowAdapter.mPics = new int[]{R.mipmap.ic_launcher_round + position, R.mipmap.ic_launcher_round + position + 1};
         viewHolder.fruitImages.setAdapter(mcoverFlowAdapter);
         //设计一个构造函数 直接传入img的高度来限制layoutManager的高度
-        HorizonCustomLayoutManager horizonCustomLayoutManager = new HorizonCustomLayoutManager(700);
-        viewHolder.fruitImages.setLayoutManager(horizonCustomLayoutManager);
+//        HorizonCustomLayoutManager horizonCustomLayoutManager = new HorizonCustomLayoutManager(700);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext);
+
+//        viewHolder.fruitImages.setLayoutManager(horizonCustomLayoutManager);
+        viewHolder.fruitImages.setLayoutManager(layoutManager);
         PagerSnapHelper helper = new PagerSnapHelper();
         helper.attachToRecyclerView(viewHolder.fruitImages);
         //RV-end

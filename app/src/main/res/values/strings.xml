@@ -11,4 +11,7 @@
     <string name="ChapterUrl">http://114.115.169.146:8080/queryChapterList</string>
     <string name="ParagraphUrl">http://114.115.169.146:8080/queryParagraphList</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
