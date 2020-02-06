@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="2dp"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +24,6 @@
                 android:layout_margin="4dp"
                 android:adjustViewBounds="true"
                 android:cropToPadding="false"
-                android:scaleType="centerCrop"
                 tools:srcCompat="@tools:sample/avatars" />
         </io.supercharge.shimmerlayout.ShimmerLayout>
 
@@ -31,10 +31,9 @@
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="title"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shimmerLayoutCell" />
 
@@ -42,18 +41,32 @@
             android:id="@+id/textViewUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:text="UserName"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewLikeNum"
+            app:layout_constraintEnd_toStartOf="@+id/textViewLikeNum"
+            app:layout_constraintTop_toTopOf="@+id/textViewLikeNum"
+            app:srcCompat="@drawable/ic_thumb_up" />
 
         <TextView
             android:id="@+id/textViewLikeNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="8dp"
             android:text="likeNum"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />" />
+            app:layout_constraintTop_toTopOf="@+id/textViewUsername" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

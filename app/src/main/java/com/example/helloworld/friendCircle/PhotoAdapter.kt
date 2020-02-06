@@ -30,7 +30,7 @@ class PhotoAdapter(private val myDataset: Array<String?>) : RecyclerView.Adapter
 
         Glide.with(holder.itemView)
                 .load(myDataset[position])
-                .placeholder(R.drawable.ic_photo_gray_24dp)
+                .placeholder(R.drawable.photoplace_holder)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
                         return false

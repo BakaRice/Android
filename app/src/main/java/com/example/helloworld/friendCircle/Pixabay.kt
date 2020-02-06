@@ -36,10 +36,19 @@ data class PhotoItem(
         @SerializedName("webformatURL") val previewUrl: String,
         @SerializedName("id") val photoId: Int,
         @SerializedName("largeImageURL") val fullUrl: String,
+        @SerializedName("likes") val likeNum: String,
+        @SerializedName("user") val userName: String,
+        //tags后期还要改 临时使用一下
+        @SerializedName("tags") var title: String,
+        //用来存放多图片的list
         var strURLArray: Array<String> = arrayOf(
                 "https://pixabay.com/get/57e5d6404855a414f6da8c7dda79367b1536dce555506c4870277bd0914dcd51bf_640.jpg",
                 "https://pixabay.com/get/55e2d3454853ad14f6da8c7dda79367b1536dce555506c4870277bd0914dcd51bf_640.jpg",
-                "https://pixabay.com/get/57e8d7414e51ab14f6da8c7dda79367b1536dce555506c4870277bd0914dcd51bf_640.jpg")
+                "https://pixabay.com/get/57e8d7414e51ab14f6da8c7dda79367b1536dce555506c4870277bd0914dcd51bf_640.jpg"),
+        //正文内容
+        var content: String,
+        //是否关注
+        var isLike: Boolean
 ) : Parcelable {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
