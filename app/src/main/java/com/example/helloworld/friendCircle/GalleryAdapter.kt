@@ -86,13 +86,12 @@ class GalleryAdapter(val galleryViewModel: GalleryViewModel) : ListAdapter<Photo
                 setShimmerAngle(0)
                 startShimmerAnimation()
             }
-            if (photoItem.title.isNotEmpty())
-                textViewTitle.text = photoItem.title
+            textViewTitle.text = photoItem.title
             textViewUsername.text = getItem(position).userName
             textViewLikeNum.text = getItem(position).likeNum
         }
         Glide.with(holder.itemView)
-                .load(getItem(position).previewUrl)
+                .load(getItem(position).strURLArray[0]?:"http://119.3.215.150/")
                 .placeholder(R.drawable.photoplace_holder)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {

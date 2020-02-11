@@ -1,21 +1,14 @@
 package com.example.helloworld.friendCircle
 
 
-import android.Manifest
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.helloworld.R
 import kotlinx.android.synthetic.main.fragment_photo.*
@@ -37,9 +30,7 @@ class PhotoFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val strArray: Array<String?> = arrayOf(arguments?.getParcelable<PhotoItem>("PHOTO")?.fullUrl,
-                "https://pixabay.com/get/55e2d3454853ad14f6da8c7dda79367b1536dce555506c4870277bd0914dcd51bf_640.jpg",
-                "https://pixabay.com/get/57e8d7414e51ab14f6da8c7dda79367b1536dce555506c4870277bd0914dcd51bf_640.jpg")
+        val strArray: Array<String>? = arguments?.getParcelable<PhotoItem>("PHOTO")?.strURLArray
         val photoAdapter = PhotoAdapter(strArray)
         recycleViewImgs.apply {
             adapter = photoAdapter
@@ -59,9 +50,9 @@ class PhotoFragment : Fragment() {
 
         val item = arguments?.getParcelable<PhotoItem>("PHOTO")
         //假数据 content
-        item?.content = "kotlin先阐述两个概念：\n" +
-                "\"?\"加在变量名后，系统在任何情况不会报它的空指针异常。\n" +
-                "\"!!\"加在变量名后，如果对象为null，那么系统一定会报异常！"
+//        item?.content = "kotlin先阐述两个概念：\n" +
+//                "\"?\"加在变量名后，系统在任何情况不会报它的空指针异常。\n" +
+//                "\"!!\"加在变量名后，如果对象为null，那么系统一定会报异常！"
 
         tV_UserName.text = item?.userName
 

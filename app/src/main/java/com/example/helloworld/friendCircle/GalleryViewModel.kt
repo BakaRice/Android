@@ -9,6 +9,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
+import java.nio.charset.Charset
 import kotlin.math.ceil
 
 const val DATA_STATUS_CAM_LOAD_MORE = 0
@@ -25,12 +26,12 @@ class GalleryViewModel(application: Application) : AndroidViewModel(application)
         get() = _dataStatusLive
 
     var needToScrollToTop = true
-    private val perPage = 100
-        private val keyWords = arrayOf("dog", "cat", "bird")
-//    private val keyWords = arrayOf("sexy", "Breast", "dog", "cat", "Bikini")
-    private var currentPage = 1
+    private val perPage = 5
+    private val keyWords = "程耳"
+    //    private val keyWords = arrayOf("sexy", "Breast", "dog", "cat", "Bikini")
+    private var currentPage = 0 //自己的api默认是从0开始 网上调用的从1开始
     private var totalPage = 1
-    private var currentKey = "cat"
+    private var currentKey = ""
     private var isNewQuery = true
     private var isLoading = false
 
@@ -39,9 +40,9 @@ class GalleryViewModel(application: Application) : AndroidViewModel(application)
     }
 
     fun resetQuery() {
-        currentPage = 1
+        currentPage = 0 //自己的api默认是从0开始 网上调用的从1开始
         totalPage = 1
-        currentKey = keyWords.random()
+        currentKey = keyWords
         isNewQuery = true
         needToScrollToTop = true
         fetchData()
@@ -58,11 +59,10 @@ class GalleryViewModel(application: Application) : AndroidViewModel(application)
                 Request.Method.GET,
                 getUrl(),
                 Response.Listener {
-
                     with(Gson().fromJson(it, Pixabay::class.java)) {
                         totalPage = ceil(totalHits.toDouble() / perPage).toInt()
                         if (isNewQuery) {
-                            _photoListLive.value = hits.toList();
+                            _photoListLive.value = hits.toList()
                         } else {
                             _photoListLive.value = arrayListOf(_photoListLive.value!!, hits.toList()).flatten()
                         }
@@ -82,10 +82,12 @@ class GalleryViewModel(application: Application) : AndroidViewModel(application)
     }
 
     private fun getUrl(): String {
-        return "https://pixabay.com/api/?key=12472743-874dc01dadd26dc44e0801d61" +
-                "&q=${currentKey}&per_page=${perPage}&page=${currentPage}"
-    }
+//        return "https://pixabay.com/api/?key=12472743-874dc01dadd26dc44e0801d61&q=${currentKey}&per_page=${perPage}&page=${currentPage}"
+        return "http://119.3.215.150:8080/moments/followbypages/username=${currentKey}&per_page=${perPage}&page=${currentPage}"
+        //return "http://119.3.215.150:8080/moments/followbypages/username=程耳&per_page=5&page=0"
+        // return "http://192.168.2.106:8080/moments/followbypages/username=%E7%A8%8B%E8%80%B3&per_page=5&page=0"
 
+    }
 
 
 }
