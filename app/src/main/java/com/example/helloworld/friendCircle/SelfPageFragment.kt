@@ -9,6 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 import com.example.helloworld.R
 import kotlinx.android.synthetic.main.fragment_gallery.*
@@ -38,16 +40,25 @@ class SelfPageFragment : Fragment() {
             selfPageViewModel.resetQuery()
         }
 
-        val selfPageAdapter = SelfPageAdapter(selfPageViewModel)
+        val selfPageAdapter = SelfPageAdapter(selfPageViewModel,name)
         recyclerView_self.apply {
             adapter = selfPageAdapter
             selfPageViewModel.resetQuery()
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         }
 
-        tV_UserName_self.text = name.toString()
+//        tV_UserName_self.text = name.toString()
+////
+////
+////        val mRequestOptions = RequestOptions.circleCropTransform()
+////                //.diskCacheStrategy(DiskCacheStrategy.NONE)
+////                .skipMemoryCache(true)
+////        Glide.with(requireContext())
+////                .load("https://pixabay.com/get/51e5dc45425ab108f5d084609629327e1c3ddee3524c704c7d2e7dd29248cc5c_640.jpg")
+////                .apply(mRequestOptions)
+////                .placeholder(R.drawable.ic_photo_gray_24dp)
+////                .into(img_head_self)
 
-        
 
         selfPageViewModel.photoListLive.observe(viewLifecycleOwner, Observer {
             if (selfPageViewModel.needToScrollToTop) {
@@ -80,6 +91,8 @@ class SelfPageFragment : Fragment() {
                 }
             }
         })
+
+
 
     }
 

@@ -2,18 +2,18 @@ package com.example.helloworld.friendCircle
 
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-
-
 import com.example.helloworld.R
+import com.example.helloworld.friendCircle.upload.UploadActivity_java
 import kotlinx.android.synthetic.main.fragment_gallery.*
 
 /**
@@ -67,6 +67,11 @@ class GalleryFragment : Fragment() {
                 }
             }
         })
+
+        tV_FriendCircle_upload.setOnClickListener {
+            val intent = Intent(activity, UploadActivity_java::class.java)
+            startActivity(intent)
+        }
     }
 
 }

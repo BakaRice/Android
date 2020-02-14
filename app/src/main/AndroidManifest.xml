@@ -34,6 +34,8 @@
 
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
         <activity android:name=".friendCircle.FriendCircleActivity"></activity>
+        <activity android:name=".friendCircle.upload.UploadActivity_java"></activity>
+        <activity android:name=".friendCircle.upload.SecondActivity"></activity>
         <activity android:name=".setrelative.ViewContects" />
         <activity android:name=".setrelative.SetRelative" />
 

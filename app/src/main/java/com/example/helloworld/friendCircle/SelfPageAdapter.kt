@@ -14,15 +14,18 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.example.helloworld.R
+import kotlinx.android.synthetic.main.fragment_self_page_info_cell.view.*
 import kotlinx.android.synthetic.main.gallery_cell.view.*
 import kotlinx.android.synthetic.main.gallery_footer.view.*
 
-class SelfPageAdapter(val selfPageViewModel: SelfPageViewModel) : ListAdapter<PhotoItem, SelfPagerViewHolder>(DIFFCALLBACK) {
+class SelfPageAdapter(val selfPageViewModel: SelfPageViewModel, val name: String?) : ListAdapter<PhotoItem, SelfPagerViewHolder>(DIFFCALLBACK) {
     companion object {
         const val NORMAL_VIEW_TYPE = 0
         const val FOOTER_VIEW_TYPE = 1
+        const val START_VIEW_TYPE = 2
     }
 
     var footerViewStatus = DATA_STATUS_CAM_LOAD_MORE
@@ -33,9 +36,18 @@ class SelfPageAdapter(val selfPageViewModel: SelfPageViewModel) : ListAdapter<Ph
             holder.itemView.setOnClickListener {
                 Bundle().apply {
                     putParcelable("PHOTO", getItem(holder.adapterPosition))
-                    holder.itemView.findNavController().navigate(R.id.action_selfPageFragment_to_photoFragment)
+                    holder.itemView.findNavController().navigate(R.id.action_selfPageFragment_to_photoFragment, this)
                 }
             }
+        } else if (viewType == START_VIEW_TYPE) {
+            holder = SelfPagerViewHolder(
+                    LayoutInflater.from(parent.context).inflate(
+                            R.layout.fragment_self_page_info_cell,
+                            parent,
+                            false).also {
+                        (it.layoutParams as StaggeredGridLayoutManager.LayoutParams).isFullSpan = true
+                    }
+            )
         } else {
             holder = SelfPagerViewHolder(
                     LayoutInflater.from(parent.context).inflate(
@@ -77,6 +89,20 @@ class SelfPageAdapter(val selfPageViewModel: SelfPageViewModel) : ListAdapter<Ph
             }
             return
         }
+        if (position == 0) {
+            with(holder.itemView) {
+                tV_UserName_self.text = name.toString()
+                val mRequestOptions = RequestOptions.circleCropTransform()
+                        //.diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .skipMemoryCache(true)
+                Glide.with(holder.itemView)
+                        .load("https://pixabay.com/get/51e5dc45425ab108f5d084609629327e1c3ddee3524c704c7d2e7dd29248cc5c_640.jpg")
+                        .apply(mRequestOptions)
+                        .placeholder(R.drawable.ic_photo_gray_24dp)
+                        .into(img_head_self)
+            }
+            return
+        }
         val photoItem = getItem(position)
         with(holder.itemView) {
             shimmerLayoutCell.apply {
@@ -110,6 +136,7 @@ class SelfPageAdapter(val selfPageViewModel: SelfPageViewModel) : ListAdapter<Ph
 
     override fun getItemViewType(position: Int): Int {
         return if (position == itemCount - 1) FOOTER_VIEW_TYPE
+        else if (position == 0) START_VIEW_TYPE
         else NORMAL_VIEW_TYPE
     }
 
