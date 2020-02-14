@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.bumptech.glide.Glide
@@ -49,11 +50,6 @@ class PhotoFragment : Fragment() {
         }
 
         val item = arguments?.getParcelable<PhotoItem>("PHOTO")
-        //假数据 content
-//        item?.content = "kotlin先阐述两个概念：\n" +
-//                "\"?\"加在变量名后，系统在任何情况不会报它的空指针异常。\n" +
-//                "\"!!\"加在变量名后，如果对象为null，那么系统一定会报异常！"
-
         tV_UserName.text = item?.userName
 
         val mRequestOptions = RequestOptions.circleCropTransform()
@@ -73,6 +69,20 @@ class PhotoFragment : Fragment() {
                 imgBut_Like.setImageResource(R.drawable.attention)
             } else {
                 imgBut_Like.setImageResource(R.drawable.unattention)
+            }
+        }
+
+        img_head.setOnClickListener{
+            Bundle().apply {
+                putString("user_name",item?.userName.toString())
+                img_head.findNavController().navigate(R.id.action_photoFragment_to_selfPageFragment,this)
+            }
+           // img_head.findNavController().navigate(R.id.action_photoFragment_to_selfPageFragment)
+        }
+        tV_UserName.setOnClickListener{
+            Bundle().apply {
+                putString("user_name",item?.userName.toString())
+                img_head.findNavController().navigate(R.id.action_photoFragment_to_selfPageFragment,this)
             }
         }
     }

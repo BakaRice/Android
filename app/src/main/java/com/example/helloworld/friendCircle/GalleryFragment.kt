@@ -27,7 +27,7 @@ class GalleryFragment : Fragment() {
     }
 
 
-    @SuppressLint("ShowToast")
+    @SuppressLint("ShowToast", "FragmentLiveDataObserve")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val galleryViewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(requireActivity().application)).get(GalleryViewModel::class.java)
@@ -45,7 +45,6 @@ class GalleryFragment : Fragment() {
             galleryAdapter.submitList(it)
             swipeLayoutGallery.isRefreshing = false
         })
-        //出错提示 volley状态
         galleryViewModel.dataStatusLive.observe(this, Observer {
             galleryAdapter.footerViewStatus = it
             galleryAdapter.notifyItemChanged(galleryAdapter.itemCount - 1)

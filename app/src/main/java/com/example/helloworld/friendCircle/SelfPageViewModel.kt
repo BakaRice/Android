@@ -11,12 +11,8 @@ import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import kotlin.math.ceil
 
-const val DATA_STATUS_CAM_LOAD_MORE = 0
-const val DATA_STATUS_NO_MORE = 1
-const val DATA_STATUS_NETWORK_ERROR = 2
 
-class GalleryViewModel(application: Application) : AndroidViewModel(application) {
-
+class SelfPageViewModel(application: Application) : AndroidViewModel(application) {
     private val _photoListLive = MutableLiveData<List<PhotoItem>>()
     private val _dataStatusLive = MutableLiveData<Int>()
     val photoListLive: LiveData<List<PhotoItem>>
@@ -24,19 +20,19 @@ class GalleryViewModel(application: Application) : AndroidViewModel(application)
     val dataStatusLive: LiveData<Int>
         get() = _dataStatusLive
 
+
     var needToScrollToTop = true
     private val perPage = 5
-    private val keyWords = "程耳"
-    //    private val keyWords = arrayOf("sexy", "Breast", "dog", "cat", "Bikini")
+    var keyWords = ""
     private var currentPage = 0 //自己的api默认是从0开始 网上调用的从1开始
     private var totalPage = 1
     private var currentKey = ""
     private var isNewQuery = true
     private var isLoading = false
 
-    init {
-        resetQuery()
-    }
+//    init {
+//        resetQuery()
+//    }
 
     fun resetQuery() {
         currentPage = 0 //自己的api默认是从0开始 网上调用的从1开始
@@ -84,6 +80,5 @@ class GalleryViewModel(application: Application) : AndroidViewModel(application)
 //        return "https://pixabay.com/api/?key=12472743-874dc01dadd26dc44e0801d61&q=${currentKey}&per_page=${perPage}&page=${currentPage}"
         return "http://119.3.215.150:8080/moments/followbypages/username=${currentKey}&per_page=${perPage}&page=${currentPage}"
     }
-
 
 }
