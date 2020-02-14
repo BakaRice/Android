@@ -4,7 +4,7 @@
     android:layout_height="60dp"
     android:gravity="center"
     android:orientation="horizontal">
-
+    <!--谭文韬 朋友圈 主体 footer-->
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"

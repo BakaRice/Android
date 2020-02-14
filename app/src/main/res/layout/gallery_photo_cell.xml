@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <!--谭文韬 朋友圈 朋友圈内容 图片recycleView的 cell-->
     <io.supercharge.shimmerlayout.ShimmerLayout
         android:id="@+id/shimmerLayoutPhotoCell"
         android:layout_width="match_parent"

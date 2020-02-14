@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".friendCircle.SelfPageFragment">
-
+    <!--谭文韬 朋友圈 个人主页-->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeLayoutSelf"
         android:layout_width="match_parent"

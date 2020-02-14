@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <!--谭文韬 朋友圈 上传返回-->
     <!-- 这里的包名会随之改变的要记得来改！！-->
     <com.example.helloworld.friendCircle.upload.ImagesViewPager
         android:id="@+id/viewpager"

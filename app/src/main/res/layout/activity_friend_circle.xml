@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".friendCircle.FriendCircleActivity">
-
+    <!--谭文韬 朋友圈 主页-->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"

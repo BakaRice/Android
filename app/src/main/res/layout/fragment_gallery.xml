@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".friendCircle.GalleryFragment">
-
+    <!--谭文韬 朋友圈 内容主体-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConstraintLayout2"
         android:layout_width="match_parent"
